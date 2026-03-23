@@ -1,0 +1,8 @@
+services:
+  _defaults:
+    autoconfigure: true
+    autowire: true
+
+  Znrl\QuestionnaireBundle\:
+    resource: ../src
+    exclude: ../src/{ContaoManager, Model}

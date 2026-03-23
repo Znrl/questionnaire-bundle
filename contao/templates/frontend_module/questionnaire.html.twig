@@ -1,0 +1,16 @@
+{% extends "@Contao/frontend_module/_base.html.twig" %}
+
+{% block content %}
+
+  {% if result == true %}
+
+    <h3>{{ result_title }}</h3>
+    {{ result_text|raw }}
+
+  {% else %}
+
+    {{ form|raw }}
+
+  {% endif %}
+
+{% endblock %}

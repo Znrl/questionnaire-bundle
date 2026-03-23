@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.1">
+  <file source-language="en">
+    <body>
+      <trans-unit id="tl_questionnaire_result.title.0">
+        <source>Title</source>
+      </trans-unit>
+      <trans-unit id="tl_questionnaire_result.headline.0">
+        <source>Headline</source>
+      </trans-unit>
+      <trans-unit id="tl_questionnaire_result.resultText.0">
+        <source>Result text</source>
+      </trans-unit>
+      <trans-unit id="tl_questionnaire_result.resultText.1">
+        <source>The result text displayed depending on the reached score.</source>
+      </trans-unit>
+      <trans-unit id="tl_questionnaire_result.minScore.0">
+        <source>Minimum Score</source>
+      </trans-unit>
+      <trans-unit id="tl_questionnaire_result.minScore.1">
+        <source>Minimum score to for this result.</source>
+      </trans-unit>
+      <trans-unit id="tl_questionnaire_result.publish_legend">
+        <source>Publish settings</source>
+      </trans-unit>
+      <trans-unit id="tl_questionnaire_result.published.0">
+        <source>Publish question</source>
+      </trans-unit>
+      <trans-unit id="tl_questionnaire_result.published.1">
+        <source>Make the question public on the site.</source>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.1">
+  <file source-language="en">
+    <body>
+      <trans-unit id="tl_questionnaire_item.question.0">
+        <source>Question</source>
+      </trans-unit>
+      <trans-unit id="tl_questionnaire_item.question.1">
+        <source>Questionnaire question</source>
+      </trans-unit>
+      <trans-unit id="tl_questionnaire_item.weightingFactor.0">
+        <source>Weighting factor</source>
+      </trans-unit>
+      <trans-unit id="tl_questionnaire_item.weightingFactor.1">
+        <source>Weighting factor to calculate the score.</source>
+      </trans-unit>
+      <trans-unit id="tl_questionnaire_item.publish_legend">
+        <source>Publish settings</source>
+      </trans-unit>
+      <trans-unit id="tl_questionnaire_item.published.0">
+        <source>Publish question</source>
+      </trans-unit>
+      <trans-unit id="tl_questionnaire_item.published.1">
+        <source>Make the question public on the site.</source>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
