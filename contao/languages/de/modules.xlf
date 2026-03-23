@@ -1,24 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xliff version="1.1">
-  <file source-language="en">
+  <file source-language="en" target-language="de">
     <body>
       <trans-unit id="MOD.questionnaire.0">
-        <source>Fragebogen</source>
+        <source>Questionnaire</source>
+        <target>Fragebogen</target>
       </trans-unit>
       <trans-unit id="MOD.questionnaire.1">
-        <source>Fragebogen erstellen</source>
+        <source>Create a questionnaire</source>
+        <target>Einen Fragebogen erstellen</target>
       </trans-unit>
       <trans-unit id="MOD.tl_questionnaire">
-        <source>Frage</source>
+        <source>Questions</source>
+        <target>Fragen</target>
       </trans-unit>
       <trans-unit id="FMD.questionnaire">
-        <source>Fragebogen</source>
+        <source>Questionnaire</source>
+        <target>Fragebögen</target>
       </trans-unit>
       <trans-unit id="FMD.questionnaire.0">
-        <source>Fragebogen</source>
+        <source>Questionnaire</source>
+        <target>Fragebogen</target>
       </trans-unit>
       <trans-unit id="FMD.questionnaire.1">
-        <source>Fügt der Seite einen Fragebogen hinzu.</source>
+        <source>Adds a Questionnaire to the page</source>
+        <target>Fügt der Seite einen Fragebogen hinzu</target>
       </trans-unit>
     </body>
   </file>

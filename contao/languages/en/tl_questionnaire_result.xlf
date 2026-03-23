@@ -24,10 +24,10 @@
         <source>Publish settings</source>
       </trans-unit>
       <trans-unit id="tl_questionnaire_result.published.0">
-        <source>Publish question</source>
+        <source>Publish result</source>
       </trans-unit>
       <trans-unit id="tl_questionnaire_result.published.1">
-        <source>Make the question public on the site.</source>
+        <source>Make the result public on the site.</source>
       </trans-unit>
     </body>
   </file>

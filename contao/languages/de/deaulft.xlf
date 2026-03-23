@@ -4,7 +4,7 @@
     <body>
       <trans-unit id="MSC.questionnaire_submit_label">
         <source>Evaluate</source>
-         <target>Auswerten</target>
+        <target>Auswerten</target>
       </trans-unit>
     </body>
   </file>
