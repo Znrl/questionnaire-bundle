@@ -1,6 +1,5 @@
 {
     "name": "znrl/questionnaire-bundle",
-    "version": "0.0.1-dev",
     "description": "Contao 5 Questionnaire Bundle. Create score based questionnaires.",
     "type": "contao-bundle",
     "license": "LGPL-3.0-or-later",
