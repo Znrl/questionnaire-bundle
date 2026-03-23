@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.1">
+  <file source-language="en">
+    <body>
+      <trans-unit id="MSC.questionnaire_submit_label">
+        <source>Evaluate</source>
+      </trans-unit>
+      <trans-unit id="MSC.send_questionnaire_name_label">
+        <source>Name</source>
+      </trans-unit>
+      <trans-unit id="MSC.send_questionnaire_email_label">
+        <source>E-Mail</source>
+      </trans-unit>
+      <trans-unit id="MSC.send_questionnaire_submit_label">
+        <source>Send</source>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -15,12 +15,15 @@ namespace Znrl\QuestionnaireBundle\Controller\FrontendModule;
 use Contao\CoreBundle\Controller\FrontendModule\AbstractFrontendModuleController;
 use Contao\CoreBundle\DependencyInjection\Attribute\AsFrontendModule;
 use Contao\CoreBundle\Twig\FragmentTemplate;
+use Contao\Email;
 use Contao\ModuleModel;
 use Contao\System;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Znrl\QuestionnaireBundle\Form\QuestionnaireForm;
+use Znrl\QuestionnaireBundle\Form\FormHelper;
+use Znrl\QuestionnaireBundle\Form\SendQuestionnaireForm;
 use Znrl\QuestionnaireBundle\Model\QuestionnaireItemModel;
 use Znrl\QuestionnaireBundle\Model\QuestionnaireResultModel;
 
@@ -39,32 +42,36 @@ class ModuleQuestionnaireController extends AbstractFrontendModuleController
             return new Response();
         }
 
-        $arrQuestionnaireItems = array();
+        $arrQuestionnaireItems = [];
 
         foreach ($objQuestionnaireItems as $objQuestionnaireItem) {
-            $objTemp = (object) $objQuestionnaireItem->row();
-            $arrQuestionnaireItems[] = $objTemp;
+            $arrQuestionnaireItems[] = (object) $objQuestionnaireItem->row();
         }
 
         $arrQuestionnaireItems = array_values(array_filter($arrQuestionnaireItems));
+        $sessionFormData = $this->getFormDataFromSession($model->questionnaire);
+        $form = QuestionnaireForm::createForm($model->questionnaire, $arrQuestionnaireItems, $sessionFormData);
+        $formData = FormHelper::validateForm($form) ? $form->fetchAll() : $sessionFormData;
 
-        $form = QuestionnaireForm::createQuestionnaireForm($model->questionnaire, $arrQuestionnaireItems, $this->getFormDataFromSession($model->questionnaire));
+        if ([] !== $formData) {
 
-        $template->set('result', false);
-
-        if (QuestionnaireForm::validateQuestionnaireForm($form)) {
-
-            $template->set('result', true);
-            $formData = $form->fetchAll();
             $score = $this->calculateScoreFromAnswers($arrQuestionnaireItems, $formData);
             $this->saveFormDataToSession($model->questionnaire, $formData);
-            $arrQuestionnaireIResults = $this->getResultsByScore($model->questionnaire, $score);
-            $template->set('result_title', $arrQuestionnaireIResults[0]->title);
-            $template->set('result_text', $arrQuestionnaireIResults[0]->resultText);
+            $arrQuestionnaireResults = $this->getResultsByScore($model->questionnaire, $score);
 
+            $sendForm = SendQuestionnaireForm::createForm($model->questionnaire);
+            if (FormHelper::validateForm($sendForm)) {
+                $this->sendResultsByMail($sendForm->fetch('email'), $arrQuestionnaireItems, $formData, $arrQuestionnaireResults[0]);
+            }
+            $template->set('send_form', FormHelper::generateForm($sendForm));
+            $template->set('score', $score);
+            $template->set('result_title', $arrQuestionnaireResults[0]->title);
+            $template->set('result_text', $arrQuestionnaireResults[0]->resultText);
         }
+        $template->set('r', $request);
 
-        $template->set('form', QuestionnaireForm::generateQuestionnaireForm($form));
+        $template->set('result', [] !== $formData);
+        $template->set('form', FormHelper::generateForm($form));
 
         return $template->getResponse();
     }
@@ -79,15 +86,30 @@ class ModuleQuestionnaireController extends AbstractFrontendModuleController
         return $score;
     }
 
+    private function sendResultsByMail($email, $arrQuestionnaireItems, $formData, $result): void
+    {
+        $email = new Email();
+        $email->subject = '';
+        $email->text = '';
+
+        foreach ($arrQuestionnaireItems as $item) {
+            $email->text  .= $item->question;
+            $email->text  .= `\n`;
+            $email->text  .= $formData['answer_' . $item->id];
+            $email->text  .= `\n\n`;
+        }
+
+        $email->sendTo('lionel@richie.com');
+    }
+
     private function getResultsByScore($questionnaireId, $score): array
     {
         $objQuestionnaireResults = QuestionnaireResultModel::findPublishedByPidAndMinScore($questionnaireId, $score);
 
-        $arrQuestionnaireResults = array();
+        $arrQuestionnaireResults = [];
 
         foreach ($objQuestionnaireResults as $objQuestionnaireResult) {
-            $objTemp = (object) $objQuestionnaireResult->row();
-            $arrQuestionnaireResults[] = $objTemp;
+            $arrQuestionnaireResults[] = (object) $objQuestionnaireResult->row();
         }
 
         return $arrQuestionnaireResults;
