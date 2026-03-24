@@ -6,6 +6,18 @@
         <source>Evaluate</source>
         <target>Auswerten</target>
       </trans-unit>
+      <trans-unit id="MSC.send_questionnaire_name_label">
+        <source>Name</source>
+        <target>Name</target>
+      </trans-unit>
+      <trans-unit id="MSC.send_questionnaire_email_label">
+        <source>E-Mail</source>
+        <target>Name</target>
+      </trans-unit>
+      <trans-unit id="MSC.send_questionnaire_submit_label">
+        <source>Send</source>
+        <target>Senden</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
