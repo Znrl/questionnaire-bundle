@@ -31,8 +31,8 @@
         ]
     },
     "scripts": {
-        "rector": "vendor/bin/rector -p --ansi",
-        "rector-dry": "vendor/bin/rector -p --dryrun --ansi",
+        "rector": "vendor/bin/rector process --ansi",
+        "rector-dry": "vendor/bin/rector process --dryrun --ansi",
         "check-cs": "vendor/bin/ecs check --ansi",
         "fix-cs": "vendor/bin/ecs check --fix --ansi"
     },

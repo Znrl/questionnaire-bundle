@@ -21,7 +21,7 @@ class SendQuestionnaireForm
     public static function createForm($questionnaireId): Form
     {
 
-        $form = new Form('send_questionnaire_form-' . $questionnaireId, 'POST');
+        $form = new Form('questionnaire_form_send_' . $questionnaireId, 'POST');
 
         $form->addFormField('name', [
             'label' => &$GLOBALS['TL_LANG']['MSC']['send_questionnaire_name_label'],
