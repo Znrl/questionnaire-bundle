@@ -76,12 +76,12 @@ class ModuleQuestionnaireController extends AbstractFrontendModuleController
                         $score,
                         $arrQuestionnaireResults[0]);
 
-                    $this->sendResultsByMail(
+                    $template->set('mail_sent', $this->sendResultsByMail(
                         $model->questionnaire_mail_recipient,
                         $model->questionnaire_mail_subject,
                         $model->questionnaire_send_mail_bcc ? $sendForm->fetch('email') : '',
                         $mailContent
-                    );
+                    ));
                 }
                 $template->set('send_form', FormHelper::generateForm($sendForm));
             }
@@ -134,7 +134,7 @@ class ModuleQuestionnaireController extends AbstractFrontendModuleController
         return $parser->parse($mailText, $arrTokens);
     }
 
-    private function sendResultsByMail(string $mailRecipient, string $subject, string $emailBcc, string $mailContent): void
+    private function sendResultsByMail(string $mailRecipient, string $subject, string $emailBcc, string $mailContent): bool
     {
         $mail = new Email();
         $mail->subject = $subject;
@@ -144,7 +144,7 @@ class ModuleQuestionnaireController extends AbstractFrontendModuleController
             $mail->sendBcc($emailBcc);
         }
 
-        $mail->sendTo($mailRecipient);
+        return $mail->sendTo($mailRecipient);
     }
 
     private function getResultsByScore(int $questionnaireId, float $score): array
