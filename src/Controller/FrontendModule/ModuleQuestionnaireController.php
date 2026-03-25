@@ -19,6 +19,7 @@ use Contao\CoreBundle\Twig\FragmentTemplate;
 use Contao\Email;
 use Contao\Environment;
 use Contao\ModuleModel;
+use Contao\StringUtil;
 use Contao\System;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 use Symfony\Component\HttpFoundation\Request;
@@ -113,10 +114,10 @@ class ModuleQuestionnaireController extends AbstractFrontendModuleController
     {
         $formDataText ='';
         foreach ($arrQuestionnaireItems as $item) {
-            $formDataText  .= $item->question;
-            $formDataText  .= '\n';
-            $formDataText  .= $formData['answer_' . $item->id];
-            $formDataText  .= '\n\n';
+            $formDataText .= $item->question;
+            $formDataText .= "\n";
+            $formDataText .= $formData['answer_' . $item->id];
+            $formDataText .= "\n\n";
         }
 
         $arrTokens = [
@@ -129,8 +130,9 @@ class ModuleQuestionnaireController extends AbstractFrontendModuleController
         ];
 
         $parser = new SimpleTokenParser(new ExpressionLanguage());
+        $htmlDecoder = System::getContainer()->get('contao.string.html_decoder');
 
-        return $parser->parse($mailText, $arrTokens);
+        return $htmlDecoder->htmlToPlainText($parser->parse($mailText, $arrTokens));
     }
 
     private function sendResultsByMail(string $mailRecipient, string $subject, string $emailBcc, string $mailContent): void
@@ -140,7 +142,9 @@ class ModuleQuestionnaireController extends AbstractFrontendModuleController
         $mail->subject = $subject;
         $mail->text = $mailContent;
 
-        $emailBcc !== '' ?? $mail->sendBcc($emailBcc);
+        if ($emailBcc !== '') {
+            $mail->sendBcc($emailBcc);
+        }
 
         $mail->sendTo($mailRecipient);
     }
