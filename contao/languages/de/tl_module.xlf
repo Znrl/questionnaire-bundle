@@ -1,52 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xliff version="1.1">
-  <file source-language="en">
+  <file source-language="en" target-language="de">
     <body>
       <trans-unit id="tl_module.questionnaire.0">
         <source>Questionnaire</source>
+        <target>Fragebogen</target>
       </trans-unit>
       <trans-unit id="tl_module.questionnaire.1">
         <source>Please select a questionnaire.</source>
+        <target>Bitte wählen Sie einen Fragebogen aus.</target>
       </trans-unit>
       <trans-unit id="tl_module.questionnaire_allow_send_mail.0">
-        <source>Allow sending by E-Mail</source>
+        <source>Allow sending by E-Mail.</source>
+        <target>E-Mail-Versand erlauben.</target>
       </trans-unit>
       <trans-unit id="tl_module.questionnaire_allow_send_mail.1">
         <source>Adds a form to the result page to send the questionnaire data.</source>
+        <target>Fügt der Ergebnisseite ein Formular zum Versand der Fragebogendaten hinzu.</target>
       </trans-unit>
       <trans-unit id="tl_module.questionnaire_send_mail_bcc.0">
         <source>Send a Copy to the user.</source>
+        <target>Eine Kopie an den Nutzer sende.</target>
       </trans-unit>
       <trans-unit id="tl_module.questionnaire_send_mail_bcc.1">
         <source>Send a copy of the data to the user provided E-Mail (BCC).</source>
+        <target>Eine Kopie der Daten an die vom Nutzer eingegebene E-Mail senden (BCC).</target>
       </trans-unit>
       <trans-unit id="tl_module.questionnaire_mail_recipient.0">
         <source>Recipient.</source>
+        <target>Empfänger</target>
       </trans-unit>
       <trans-unit id="tl_module.questionnaire_mail_recipient.1">
         <source>The E-Mail recipient.</source>
+        <target>Empfänger E-Mail-Adresse.</target>
       </trans-unit>
       <trans-unit id="tl_module.questionnaire_mail_subject.0">
         <source>Subject.</source>
+        <target>Betreff</target>
       </trans-unit>
       <trans-unit id="tl_module.questionnaire_mail_subject.1">
         <source>The Subject of the E-Mail.</source>
+        <target>Betreff der E-mail.</target>
       </trans-unit>
       <trans-unit id="tl_module.questionnaire_mail_text.0">
         <source>Mail text</source>
+        <target>E-Mail-Text</target>
       </trans-unit>
       <trans-unit id="tl_module.questionnaire_mail_text.1">
         <source>The content of the E-Mail, use simple tokens for the questionnaire data.</source>
+        <target>Textinhalt der E-Mail. Die Daten können über Simple Tokens eingefügt werden.</target>
       </trans-unit>
       <trans-unit id="tl_module.questionnaire_mail_text_default.0">
         <source>Name: ##q_name##
 E-Mail: ##q_email##
 
-Result: ##q_result_title##
+Ergebnis: ##q_result_title##
 
 ##q_result_text##
 
-Questionnaire form Data:
+Fragebogendaten:
 ##q_form_data##</source>
       </trans-unit>
     </body>

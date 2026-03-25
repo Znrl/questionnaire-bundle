@@ -14,10 +14,6 @@
         <source>Questions</source>
         <target>Fragen</target>
       </trans-unit>
-      <trans-unit id="FMD.questionnaire">
-        <source>Questionnaire</source>
-        <target>Fragebögen</target>
-      </trans-unit>
       <trans-unit id="FMD.questionnaire.0">
         <source>Questionnaire</source>
         <target>Fragebogen</target>

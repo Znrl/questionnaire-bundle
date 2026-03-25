@@ -5,6 +5,9 @@
       <trans-unit id="tl_questionnaire.modules">
         <source>Results</source>
       </trans-unit>
+      <trans-unit id="tl_questionnaire.title_legend">
+        <source>Title settings</source>
+      </trans-unit>
       <trans-unit id="tl_questionnaire.title.0">
         <source>Title</source>
       </trans-unit>

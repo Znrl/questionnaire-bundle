@@ -69,7 +69,7 @@ class ModuleQuestionnaireController extends AbstractFrontendModuleController
                 if (FormHelper::validateForm($sendForm)) {
 
                     $mailContent = $this->prepareMailContent(
-                        $model->mailText,
+                        $model->questionnaire_mail_text,
                         $sendForm->fetch('name'),
                         $sendForm->fetch('email'),
                         $arrQuestionnaireItems,
@@ -80,7 +80,7 @@ class ModuleQuestionnaireController extends AbstractFrontendModuleController
                     $this->sendResultsByMail(
                         $model->mailRecipient,
                         $model->mailSubject,
-                        $sendForm->fetch('email'),
+                        $model->questionnaire_send_mail_bcc ? $sendForm->fetch('email') : '',
                         $mailContent
                     );
                 }
@@ -140,7 +140,8 @@ class ModuleQuestionnaireController extends AbstractFrontendModuleController
         $mail->subject = $subject;
         $mail->text = $mailContent;
 
-        $mail->sendBcc($emailBcc);
+        $emailBcc !== '' ?? $mail->sendBcc($emailBcc);
+
         $mail->sendTo($mailRecipient);
     }
 

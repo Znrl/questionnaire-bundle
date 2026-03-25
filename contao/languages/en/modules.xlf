@@ -11,9 +11,6 @@
       <trans-unit id="MOD.tl_questionnaire">
         <source>Questions</source>
       </trans-unit>
-      <trans-unit id="FMD.questionnaire">
-        <source>Questionnaire</source>
-      </trans-unit>
       <trans-unit id="FMD.questionnaire.0">
         <source>Questionnaire</source>
       </trans-unit>

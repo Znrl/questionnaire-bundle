@@ -2,6 +2,9 @@
 <xliff version="1.1">
   <file source-language="en">
     <body>
+      <trans-unit id="tl_questionnaire_item.title_legend">
+        <source>Title settings</source>
+      </trans-unit>
       <trans-unit id="tl_questionnaire_item.question.0">
         <source>Question</source>
       </trans-unit>
