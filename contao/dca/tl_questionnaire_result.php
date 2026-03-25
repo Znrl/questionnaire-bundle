@@ -97,11 +97,11 @@ $GLOBALS['TL_DCA']['tl_questionnaire_result'] = array
         ),
         'resultText' => array
         (
-            'search'                  => true,
-            'inputType'               => 'textarea',
-            'eval'                    => array('mandatory'=>true, 'basicEntities'=>true, 'rte'=>'tinyMCE', 'helpwizard'=>true, 'tl_class'=>'clr'),
-            'explanation'             => 'insertTags',
-            'sql'                     => array('type'=>'text', 'length'=>AbstractMySQLPlatform::LENGTH_LIMIT_MEDIUMTEXT, 'notnull'=>false)
+            'search' => true,
+            'inputType' => 'textarea',
+            'eval' => array('mandatory'=>true, 'basicEntities'=>true, 'rte'=>'tinyMCE', 'helpwizard'=>true, 'tl_class'=>'clr'),
+            'explanation' => 'insertTags',
+            'sql' => array('type'=>'text', 'length'=>AbstractMySQLPlatform::LENGTH_LIMIT_MEDIUMTEXT, 'notnull'=>false)
         ),
         'minScore' => array
         (

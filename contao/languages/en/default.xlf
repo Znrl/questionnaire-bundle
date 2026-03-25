@@ -14,6 +14,15 @@
       <trans-unit id="MSC.send_questionnaire_submit_label">
         <source>Send</source>
       </trans-unit>
+      <trans-unit id="MSC.mail_questionnaire_subject">
+        <source>Evaluation - Questionnaire</source>
+      </trans-unit>
+      <trans-unit id="MSC.mail_questionnaire_result_label">
+        <source>Result</source>
+      </trans-unit>
+      <trans-unit id="MSC.mail_questionnaire_data_label">
+        <source>Formdata</source>
+      </trans-unit>
     </body>
   </file>
 </xliff>

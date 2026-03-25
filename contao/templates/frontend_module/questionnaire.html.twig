@@ -2,13 +2,17 @@
 
 {% block content %}
 
-  {% if result == true %}
+  {% if result %}
 
     <h3>{{ result_headline }}</h3>
 
     {{ result_text|raw }}
 
-    {{ send_form|raw }}
+    {% if send_form %}
+
+      {{ send_form|raw }}
+
+    {% endif %}
 
   {% else %}
 

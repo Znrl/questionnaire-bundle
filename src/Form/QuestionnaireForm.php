@@ -13,13 +13,17 @@ declare(strict_types=1);
 namespace Znrl\QuestionnaireBundle\Form;
 
 use Codefog\HasteBundle\Form\Form;
+use Contao\Validator;
 
 class QuestionnaireForm
 {
 
-    public static function createForm(int $questionnaireId, $questionnaireItems, array $formData): Form {
+    public static function createForm(int $questionnaireId, array $questionnaireItems, array $sessionFormData = []): Form {
 
         $form = new Form('questionnaire_form_' . $questionnaireId, 'POST');
+
+
+        $options = ['1', '2', '3', '4', '5'];
 
         foreach ($questionnaireItems as $questionnaireItem) {
 
@@ -30,9 +34,17 @@ class QuestionnaireForm
 
             $form->addFormField('answer_' . $questionnaireItem->id, [
                 'inputType' => 'radio',
-                'options' => ['1', '2', '3', '4', '5'],
-                'default' => $formData['answer_' . $questionnaireItem->id] ?? '',
-                'eval' => ['mandatory' => true],
+                'options' => $options,
+                'default' => $sessionFormData['answer_' . $questionnaireItem->id] ?? '',
+                'eval' => ['decodeEntities' => true, 'mandatory' => true],
+                'save_callback' => [
+                    static function (string $value) use ($options): string {
+                        if (!in_array($value, $options, true)) {
+                            throw new \InvalidArgumentException('Submitted Option is not valid!');
+                        }
+                        return $value;
+                    }
+                ]
             ]);
         }
 

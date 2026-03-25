@@ -12,11 +12,23 @@
       </trans-unit>
       <trans-unit id="MSC.send_questionnaire_email_label">
         <source>E-Mail</source>
-        <target>Name</target>
+        <target>E-Mail</target>
       </trans-unit>
       <trans-unit id="MSC.send_questionnaire_submit_label">
         <source>Send</source>
         <target>Senden</target>
+      </trans-unit>
+      <trans-unit id="MSC.send_questionnaire_email_subject">
+        <source>Evaluation - Questionnaire</source>
+        <target>Auswertung - Fragebogen</target>
+      </trans-unit>
+      <trans-unit id="MSC.mail_questionnaire_result_label">
+        <source>Result</source>
+        <target>Ergebnis</target>
+      </trans-unit>
+      <trans-unit id="MSC.mail_questionnaire_data_label">
+        <source>Formdata</source>
+        <target>Formulardaten</target>
       </trans-unit>
     </body>
   </file>

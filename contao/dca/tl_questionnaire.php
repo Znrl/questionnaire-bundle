@@ -52,10 +52,10 @@ $GLOBALS['TL_DCA']['tl_questionnaire'] = array
         (
             'modules' => array
             (
-                'href'                => 'table=tl_questionnaire_result',
-                'prefetch'            => true,
-                'icon'                => 'modules.svg',
-                'primary'             => true,
+                'href' => 'table=tl_questionnaire_result',
+                'prefetch'  => true,
+                'icon' => 'modules.svg',
+                'primary' => true,
             )
         )
     ),

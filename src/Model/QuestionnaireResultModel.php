@@ -33,7 +33,7 @@ class QuestionnaireResultModel extends Model
      *
      * @return Collection<QuestionnaireModel>|null A collection of models or null if there are no Questionnaire Items
      */
-    public static function findPublishedByPidAndMinScore(int $intPid, float $minScore, array $arrOptions=array()): ?Collection
+    public static function findPublishedByPidAndMinScore(int $intPid, float $minScore, array $arrOptions = []): ?Collection
     {
         $t = static::$strTable;
         $arrColumns = array("$t.pid=? AND $t.minScore<=?",);
