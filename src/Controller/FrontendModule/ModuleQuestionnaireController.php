@@ -17,9 +17,7 @@ use Contao\CoreBundle\DependencyInjection\Attribute\AsFrontendModule;
 use Contao\CoreBundle\String\SimpleTokenParser;
 use Contao\CoreBundle\Twig\FragmentTemplate;
 use Contao\Email;
-use Contao\Environment;
 use Contao\ModuleModel;
-use Contao\StringUtil;
 use Contao\System;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 use Symfony\Component\HttpFoundation\Request;
@@ -120,24 +118,24 @@ class ModuleQuestionnaireController extends AbstractFrontendModuleController
             $formDataText .= "\n\n";
         }
 
+        $htmlDecoder = System::getContainer()->get('contao.string.html_decoder');
+
         $arrTokens = [
             'q_name' => $name,
             'q_email' => $email,
-            'q_result_title' => $result->title,
-            'q_result_text' => $result->resultText,
+            'q_result_title' => $htmlDecoder->htmlToPlainText($result->title),
+            'q_result_text' => $htmlDecoder->htmlToPlainText($result->resultText),
             'q_score' => $score,
             'q_form_data' => $formDataText
         ];
 
         $parser = new SimpleTokenParser(new ExpressionLanguage());
-        $htmlDecoder = System::getContainer()->get('contao.string.html_decoder');
 
-        return $htmlDecoder->htmlToPlainText($parser->parse($mailText, $arrTokens));
+        return $parser->parse($mailText, $arrTokens);
     }
 
     private function sendResultsByMail(string $mailRecipient, string $subject, string $emailBcc, string $mailContent): void
     {
-
         $mail = new Email();
         $mail->subject = $subject;
         $mail->text = $mailContent;
