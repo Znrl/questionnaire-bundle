@@ -78,8 +78,8 @@ class ModuleQuestionnaireController extends AbstractFrontendModuleController
                         $arrQuestionnaireResults[0]);
 
                     $this->sendResultsByMail(
-                        $model->mailRecipient,
-                        $model->mailSubject,
+                        $model->questionnaire_mail_recipient,
+                        $model->questionnaire_mail_subject,
                         $model->questionnaire_send_mail_bcc ? $sendForm->fetch('email') : '',
                         $mailContent
                     );
