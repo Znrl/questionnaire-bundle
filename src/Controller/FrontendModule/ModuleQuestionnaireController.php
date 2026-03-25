@@ -83,6 +83,7 @@ class ModuleQuestionnaireController extends AbstractFrontendModuleController
                         $mailContent
                     ));
                 }
+
                 $template->set('send_form', FormHelper::generateForm($sendForm));
             }
 

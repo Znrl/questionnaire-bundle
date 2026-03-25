@@ -8,7 +8,7 @@
 
     {{ result_text|raw }}
 
-    {% if send_form and mail_sent === false %}
+    {% if (send_form is defined) and (mail_sent is not defined or mail_sent === false) %}
 
       {{ send_form|raw }}
 
