@@ -8,35 +8,38 @@
       <trans-unit id="tl_module.questionnaire.1">
         <source>Please select a questionnaire.</source>
       </trans-unit>
+      <trans-unit id="tl_module.mail_config_legend">
+        <source>Send by mail config</source>
+      </trans-unit>
       <trans-unit id="tl_module.questionnaire_allow_send_mail.0">
-        <source>Allow sending by E-Mail</source>
+        <source>Allow sending by e-mail</source>
       </trans-unit>
       <trans-unit id="tl_module.questionnaire_allow_send_mail.1">
         <source>Adds a form to the result page to send the questionnaire data.</source>
       </trans-unit>
-      <trans-unit id="tl_module.questionnaire_send_mail_bcc.0">
+      <trans-unit id="tl_module.questionnaire_send_mail_copy_to_user.0">
         <source>Send a Copy to the user.</source>
       </trans-unit>
-      <trans-unit id="tl_module.questionnaire_send_mail_bcc.1">
-        <source>Send a copy of the data to the user provided E-Mail (BCC).</source>
+      <trans-unit id="tl_module.questionnaire_send_mail_copy_to_user.1">
+        <source>Send a copy of the data to the user provided e-mail.</source>
       </trans-unit>
       <trans-unit id="tl_module.questionnaire_mail_recipient.0">
         <source>Recipient.</source>
       </trans-unit>
       <trans-unit id="tl_module.questionnaire_mail_recipient.1">
-        <source>The E-Mail recipient.</source>
+        <source>The e-mail recipient.</source>
       </trans-unit>
       <trans-unit id="tl_module.questionnaire_mail_subject.0">
         <source>Subject.</source>
       </trans-unit>
       <trans-unit id="tl_module.questionnaire_mail_subject.1">
-        <source>The Subject of the E-Mail.</source>
+        <source>The Subject of the e-mail.</source>
       </trans-unit>
       <trans-unit id="tl_module.questionnaire_mail_text.0">
         <source>Mail text</source>
       </trans-unit>
       <trans-unit id="tl_module.questionnaire_mail_text.1">
-        <source>The content of the E-Mail, use simple tokens for the questionnaire data.</source>
+        <source>The content of the e-mail, use simple tokens for the questionnaire data.</source>
       </trans-unit>
       <trans-unit id="tl_module.questionnaire_mail_text_default.0">
         <source>Name: ##q_name##
@@ -48,6 +51,12 @@ Result: ##q_result_title##
 
 Questionnaire form Data:
 ##q_form_data##</source>
+      </trans-unit>
+      <trans-unit id="tl_module.questionnaire_mail_form_label.0">
+        <source>Send by mail - form label.</source>
+      </trans-unit>
+      <trans-unit id="tl_module.questionnaire_mail_form_label.1">
+        <source>The label of the form to send the form data by e-mail.</source>
       </trans-unit>
     </body>
   </file>

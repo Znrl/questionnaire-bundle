@@ -12,6 +12,7 @@ declare(strict_types=1);
 
 use Contao\DataContainer;
 use Contao\DC_Table;
+use Doctrine\DBAL\Platforms\AbstractMySQLPlatform;
 
 $GLOBALS['TL_DCA']['tl_questionnaire'] = array
 (
@@ -63,7 +64,7 @@ $GLOBALS['TL_DCA']['tl_questionnaire'] = array
     // Palettes
     'palettes' => array
     (
-        'default' => '{title_legend},title,headline'
+        'default' => '{title_legend},title,headline;{explanation_legend},questionnaireExplanation,resultExplanation'
     ),
 
     // Fields
@@ -90,6 +91,22 @@ $GLOBALS['TL_DCA']['tl_questionnaire'] = array
             'inputType' => 'text',
             'eval' => array('mandatory' => true, 'maxlength' => 255, 'tl_class' => 'w50'),
             'sql' => array('type' => 'string', 'length' => 255, 'default' => '')
-        )
+        ),
+        'questionnaireExplanation' => array
+        (
+            'search' => true,
+            'inputType' => 'textarea',
+            'eval' => array('mandatory'=>true, 'basicEntities'=>true, 'rte'=>'tinyMCE', 'helpwizard'=>true, 'tl_class'=>'clr'),
+            'explanation' => 'insertTags',
+            'sql' => array('type'=>'text', 'length'=>AbstractMySQLPlatform::LENGTH_LIMIT_MEDIUMTEXT, 'notnull'=>false)
+        ),
+        'resultExplanation' => array
+        (
+            'search' => true,
+            'inputType' => 'textarea',
+            'eval' => array('mandatory'=>true, 'basicEntities'=>true, 'rte'=>'tinyMCE', 'helpwizard'=>true, 'tl_class'=>'clr'),
+            'explanation' => 'insertTags',
+            'sql' => array('type'=>'text', 'length'=>AbstractMySQLPlatform::LENGTH_LIMIT_MEDIUMTEXT, 'notnull'=>false)
+        ),
     )
 );

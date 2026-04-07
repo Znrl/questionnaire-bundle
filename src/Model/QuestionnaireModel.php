@@ -20,5 +20,5 @@ class QuestionnaireModel extends Model
      * Table name
      * @var string
      */
-    protected static $strTable = 'tl_questionnaire.xlf';
+    protected static $strTable = 'tl_questionnaire';
 }

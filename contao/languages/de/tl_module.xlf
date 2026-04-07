@@ -10,6 +10,10 @@
         <source>Please select a questionnaire.</source>
         <target>Bitte wählen Sie einen Fragebogen aus.</target>
       </trans-unit>
+      <trans-unit id="tl_module.mail_config_legend">
+        <source>Send by mail config</source>
+        <target>E-Mail-Versand Einstellungen</target>
+      </trans-unit>
       <trans-unit id="tl_module.questionnaire_allow_send_mail.0">
         <source>Allow sending by E-Mail.</source>
         <target>E-Mail-Versand erlauben.</target>
@@ -18,13 +22,13 @@
         <source>Adds a form to the result page to send the questionnaire data.</source>
         <target>Fügt der Ergebnisseite ein Formular zum Versand der Fragebogendaten hinzu.</target>
       </trans-unit>
-      <trans-unit id="tl_module.questionnaire_send_mail_bcc.0">
+      <trans-unit id="tl_module.questionnaire_send_mail_copy_to_user.0">
         <source>Send a Copy to the user.</source>
         <target>Eine Kopie an den Nutzer sende.</target>
       </trans-unit>
-      <trans-unit id="tl_module.questionnaire_send_mail_bcc.1">
-        <source>Send a copy of the data to the user provided E-Mail (BCC).</source>
-        <target>Eine Kopie der Daten an die vom Nutzer eingegebene E-Mail senden (BCC).</target>
+      <trans-unit id="tl_module.questionnaire_send_mail_copy_to_user.1">
+        <source>Send a copy of the data to the user provided E-Mail.</source>
+        <target>Eine Kopie der Daten an die vom Nutzer eingegebene E-Mail senden.</target>
       </trans-unit>
       <trans-unit id="tl_module.questionnaire_mail_recipient.0">
         <source>Recipient.</source>
@@ -60,6 +64,14 @@ Ergebnis: ##q_result_title##
 
 Fragebogendaten:
 ##q_form_data##</source>
+      </trans-unit>
+      <trans-unit id="tl_module.questionnaire_mail_form_label.0">
+        <source>Send by mail - form label.</source>
+        <target>E-Mail-Versand label.</target>
+      </trans-unit>
+      <trans-unit id="tl_module.questionnaire_mail_form_label.1">
+        <source>The label of the form to send the form data by e-mail.</source>
+        <target>Das Label des Fomulars für den E-Mail-Versand der Daten..</target>
       </trans-unit>
     </body>
   </file>

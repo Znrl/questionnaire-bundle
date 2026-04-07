@@ -27,6 +27,7 @@ use Znrl\QuestionnaireBundle\Form\QuestionnaireForm;
 use Znrl\QuestionnaireBundle\Form\FormHelper;
 use Znrl\QuestionnaireBundle\Form\SendQuestionnaireForm;
 use Znrl\QuestionnaireBundle\Model\QuestionnaireItemModel;
+use Znrl\QuestionnaireBundle\Model\QuestionnaireModel;
 use Znrl\QuestionnaireBundle\Model\QuestionnaireResultModel;
 
 #[AsFrontendModule(type: 'questionnaire', category: 'questionnaire', template: 'frontend_module/questionnaire')]
@@ -37,6 +38,7 @@ class ModuleQuestionnaireController extends AbstractFrontendModuleController
 
     protected function getResponse(FragmentTemplate $template, ModuleModel $model, Request $request): Response
     {
+        $objQuestionnaire = QuestionnaireModel::findById($model->questionnaire);
         $objQuestionnaireItems = QuestionnaireItemModel::findPublishedByPid($model->questionnaire);
 
         if ($objQuestionnaireItems === null) {
@@ -79,21 +81,31 @@ class ModuleQuestionnaireController extends AbstractFrontendModuleController
                     $template->set('mail_sent', $this->sendResultsByMail(
                         $model->questionnaire_mail_recipient,
                         $model->questionnaire_mail_subject,
-                        $model->questionnaire_send_mail_bcc ? $sendForm->fetch('email') : '',
                         $mailContent
                     ));
+
+                    if ($model->questionnaire_send_mail_copy_to_user) {
+                        $this->sendResultsByMail(
+                            $sendForm->fetch('email'),
+                            $model->questionnaire_mail_subject,
+                            $mailContent
+                        );
+                    }
                 }
 
+                $template->set('send_form_label', $model->questionnaire_mail_form_label);
                 $template->set('send_form', FormHelper::generateForm($sendForm));
             }
 
             $template->set('score', $score);
             $template->set('result_headline', $arrQuestionnaireResults[0]->headline);
             $template->set('result_text', $arrQuestionnaireResults[0]->resultText);
+            $template->set('result_explanation', $objQuestionnaire->resultExlpanation);
         }
-        $template->set('r', $request);
 
         $template->set('result', [] !== $formData);
+        $template->set('questionnaire_headline', $objQuestionnaire->headline);
+        $template->set('questionnaire_explanation', $objQuestionnaire->questionnaireExplanation);
         $template->set('form', FormHelper::generateForm($form));
 
         return $template->getResponse();
@@ -135,15 +147,11 @@ class ModuleQuestionnaireController extends AbstractFrontendModuleController
         return $parser->parse($mailText, $arrTokens);
     }
 
-    private function sendResultsByMail(string $mailRecipient, string $subject, string $emailBcc, string $mailContent): bool
+    private function sendResultsByMail(string $mailRecipient, string $subject, string $mailContent): bool
     {
         $mail = new Email();
         $mail->subject = $subject;
         $mail->text = $mailContent;
-
-        if ($emailBcc !== '') {
-            $mail->sendBcc($emailBcc);
-        }
 
         return $mail->sendTo($mailRecipient);
     }

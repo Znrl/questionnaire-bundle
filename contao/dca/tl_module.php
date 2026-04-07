@@ -18,7 +18,7 @@ use Doctrine\DBAL\Platforms\AbstractMySQLPlatform;
 // Add palettes to tl_module
 $GLOBALS['TL_DCA']['tl_module']['palettes']['__selector__'][] = 'questionnaire_allow_send_mail';
 $GLOBALS['TL_DCA']['tl_module']['palettes']['questionnaire'] = '{title_legend},name,headline,type;{config_legend},questionnaire;{mail_config_legend},questionnaire_allow_send_mail;{template_legend:hide},customTpl;{protected_legend:hide},protected;{expert_legend:hide},cssID';
-$GLOBALS['TL_DCA']['tl_module']['subpalettes']['questionnaire_allow_send_mail'] = 'questionnaire_send_mail_bcc,questionnaire_mail_recipient,questionnaire_mail_subject,questionnaire_mail_text';
+$GLOBALS['TL_DCA']['tl_module']['subpalettes']['questionnaire_allow_send_mail'] = 'questionnaire_send_mail_copy_to_user,questionnaire_mail_recipient,questionnaire_mail_subject,questionnaire_mail_text,questionnaire_mail_form_label';
 
 // Add fields to tl_module
 $GLOBALS['TL_DCA']['tl_module']['fields']['questionnaire'] = array
@@ -37,7 +37,7 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['questionnaire_allow_send_mail'] = arr
     'eval'                  => ['submitOnChange' => true, 'chosen' => true, 'tl_class' => 'w50'],
     'sql'                   => ['type' => 'boolean', 'default' => true],
 );
-$GLOBALS['TL_DCA']['tl_module']['fields']['questionnaire_send_mail_bcc'] = array
+$GLOBALS['TL_DCA']['tl_module']['fields']['questionnaire_send_mail_copy_to_user'] = array
 (
     'inputType'             => 'checkbox',
     'eval'                  => ['chosen' => true, 'tl_class' => 'w50'],
@@ -65,6 +65,13 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['questionnaire_mail_text'] = array
     'inputType'             => 'textarea',
     'eval'                  => array('style'=>'height:120px', 'decodeEntities'=>true, 'mandatory' => true),
     'sql'                   => array('type'=>'text', 'length'=>AbstractMySQLPlatform::LENGTH_LIMIT_TEXT, 'notnull'=>false)
+);
+
+$GLOBALS['TL_DCA']['tl_module']['fields']['questionnaire_mail_form_label'] = array
+(
+    'inputType'             => 'text',
+    'eval'                  => ['tl_class' => 'long clr', 'decodeEntities' => true],
+    'sql'                   => ['type' => 'string', 'length' => 255, 'default' => null, 'notnull' => false],
 );
 
 /**

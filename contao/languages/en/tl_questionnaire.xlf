@@ -11,9 +11,24 @@
       <trans-unit id="tl_questionnaire.title.0">
         <source>Title</source>
       </trans-unit>
-    <trans-unit id="tl_questionnaire.headline.0">
-      <source>Headline</source>
-    </trans-unit>
+      <trans-unit id="tl_questionnaire.headline.0">
+        <source>Headline</source>
+      </trans-unit>
+      <trans-unit id="tl_questionnaire.explanation_legend">
+        <source>Explanation settings</source>
+      </trans-unit>
+      <trans-unit id="tl_questionnaire.questionnaireExplanation.0">
+        <source>Questionnaire Explanation</source>
+      </trans-unit>
+      <trans-unit id="tl_questionnaire.questionnaireExplanation.1">
+        <source>Will be displayed together with the questionnaire..</source>
+      </trans-unit>
+      <trans-unit id="tl_questionnaire.resultExplanation.0">
+        <source>Result Explanation</source>
+      </trans-unit>
+      <trans-unit id="tl_questionnaire.resultExplanation.1">
+        <source>Will be displayed when a result is shown.</source>
+      </trans-unit>
     </body>
   </file>
 </xliff>
