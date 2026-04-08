@@ -6,13 +6,14 @@
 
     <h3>{{ result_headline }}</h3>
 
-    {{ result_explanation|raw }}
 
     {{ result_text|raw }}
 
+    {{ result_explanation|raw }}
+
     {% if (send_form is defined) and (mail_sent is not defined or mail_sent === false) %}
 
-      {{ send_form_label }}
+      <h4>{{ send_form_label }}</h4>
 
       {{ send_form|raw }}
 
