@@ -19,6 +19,7 @@ use Contao\CoreBundle\Twig\FragmentTemplate;
 use Contao\Email;
 use Contao\ModuleModel;
 use Contao\System;
+use Soundasleep\Html2Text;
 use Symfony\Component\ExpressionLanguage\ExpressionLanguage;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -100,7 +101,7 @@ class ModuleQuestionnaireController extends AbstractFrontendModuleController
             $template->set('score', $score);
             $template->set('result_headline', $arrQuestionnaireResults[0]->headline);
             $template->set('result_text', $arrQuestionnaireResults[0]->resultText);
-            $template->set('result_explanation', $objQuestionnaire->resultExlpanation);
+            $template->set('result_explanation', $objQuestionnaire->resultExplanation);
         }
 
         $template->set('result', [] !== $formData);
@@ -131,13 +132,11 @@ class ModuleQuestionnaireController extends AbstractFrontendModuleController
             $formDataText .= "\n\n";
         }
 
-        $htmlDecoder = System::getContainer()->get('contao.string.html_decoder');
-
         $arrTokens = [
             'q_name' => $name,
             'q_email' => $email,
-            'q_result_title' => $htmlDecoder->htmlToPlainText($result->title),
-            'q_result_text' => $htmlDecoder->htmlToPlainText($result->resultText),
+            'q_result_title' => Html2Text::convert($result->title, ['ignore_errors' => true]),
+            'q_result_text' => Html2Text::convert($result->resultText, ['ignore_errors' => true]),
             'q_score' => $score,
             'q_form_data' => $formDataText
         ];

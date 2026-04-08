@@ -53,7 +53,7 @@ Questionnaire form Data:
 ##q_form_data##</source>
       </trans-unit>
       <trans-unit id="tl_module.questionnaire_mail_form_label.0">
-        <source>Send by mail - form label.</source>
+        <source>Send by mail - form label</source>
       </trans-unit>
       <trans-unit id="tl_module.questionnaire_mail_form_label.1">
         <source>The label of the form to send the form data by e-mail.</source>
